@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "框架/框架.md",
+                "file": "多线程/多线程.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "框架"
+              "title": "多线程"
             }
           }
         ]
@@ -61,7 +61,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "Search"
+              "title": "搜索"
             }
           },
           {
@@ -112,11 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "60678c30454422b4ac001aa37f0f8418.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "60678c30454422b4ac001aa37f0f8418 的出链列表"
             }
           },
           {
@@ -131,7 +132,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
-              "title": "Tags"
+              "title": "标签"
             }
           },
           {
@@ -140,12 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "多线程/多线程.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "多线程 的大纲"
             }
           },
           {
@@ -177,25 +179,34 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "edfff7d3b62ca657",
+  "active": "b177d41e7f9eda75",
   "lastOpenFiles": [
+    "Pasted image 20260704184702.png",
+    "Pasted image 20260704184308.png",
+    "Redis/Redis.md",
+    "项目/项目表达.md",
+    "JVM/JVM.md",
+    "AI/AI.md",
+    "Redis",
     "多线程/多线程.md",
+    "Pasted image 20260702100945.png",
+    "JAVA基础/JAVA基础.md",
+    "JAVA基础",
+    "AI",
+    "Pasted image 20260628123648.png",
+    "Pasted image 20260628123710.png",
+    "Pasted image 20260614191607.png",
+    "60678c30454422b4ac001aa37f0f8418.png",
+    "Pasted image 20260613111318.png",
+    "429385d189bf7fd5d26f8b6a3d748cc5.png",
+    "项目",
+    "MQ/MQ.md",
     "框架/框架.md",
     "框架",
-    "MQ/MQ.md",
     "MySQL/MySQL.md",
-    "JVM/JVM.md",
     "MQ",
     "Pasted image 20260614150657.png",
-    "Pasted image 20260614191607.png",
     "Pasted image 20260614191017.png",
-    "Pasted image 20260614191444 1.png",
-    "Pasted image 20260614191220.png",
-    "Pasted image 20260613111318.png",
-    "Pasted image 20260614191418.png",
-    "Pasted image 20260614191444.png",
-    "429385d189bf7fd5d26f8b6a3d748cc5.png",
-    "60678c30454422b4ac001aa37f0f8418.png",
     "语法/Markdown语法.md",
     "Spring",
     "JVM",
@@ -204,13 +215,9 @@
     "Untitled.md",
     "Spring容器.md",
     "知识点/mysql.md",
-    "Untitled.base",
     "Untitled.canvas",
-    "MySQL",
     "第一章/2/面向管理和支持生产是信息系统的显著特点。.md",
-    "多线程",
     "第一章/2/Untitled.md",
-    "Welcome.md",
-    "第一章/2"
+    "Welcome.md"
   ]
 }
