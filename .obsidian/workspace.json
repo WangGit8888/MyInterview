@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "多线程/多线程.md",
+                "file": "Redis/Redis.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "多线程"
+              "title": "Redis"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "多线程/多线程.md",
+                "file": "Redis/Redis.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "多线程 的大纲"
+              "title": "Redis 的大纲"
             }
           },
           {
@@ -179,16 +179,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b177d41e7f9eda75",
+  "active": "edfff7d3b62ca657",
   "lastOpenFiles": [
+    "Pasted image 20260705103238.png",
+    "多线程/多线程.md",
+    "AI/AI.md",
     "Pasted image 20260704184702.png",
     "Pasted image 20260704184308.png",
     "Redis/Redis.md",
     "项目/项目表达.md",
     "JVM/JVM.md",
-    "AI/AI.md",
     "Redis",
-    "多线程/多线程.md",
     "Pasted image 20260702100945.png",
     "JAVA基础/JAVA基础.md",
     "JAVA基础",
@@ -206,7 +207,6 @@
     "MySQL/MySQL.md",
     "MQ",
     "Pasted image 20260614150657.png",
-    "Pasted image 20260614191017.png",
     "语法/Markdown语法.md",
     "Spring",
     "JVM",
