@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JVM/JVM.md",
+                "file": "MySQL/MySQL.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "JVM"
+              "title": "MySQL"
             }
           }
         ]
@@ -181,24 +181,25 @@
   },
   "active": "eebeb8c1211db6f9",
   "lastOpenFiles": [
-    "Pasted image 20260710140855.png",
+    "Pasted image 20260614150657.png",
+    "MySQL/MySQL.md",
+    "Pasted image 20260711212035.png",
+    "Pasted image 20260711210447.png",
     "JVM/JVM.md",
+    "Pasted image 20260711114918.png",
+    "429385d189bf7fd5d26f8b6a3d748cc5.png",
+    "Pasted image 20260711091321.png",
+    "Pasted image 20260613111318.png",
+    "Pasted image 20260711085221.png",
+    "Pasted image 20260710140855.png",
     "Pasted image 20260710074115.png",
     "Pasted image 20260710074327.png",
-    "Pasted image 20260705103238.png",
-    "Pasted image 20260706231236.png",
     "简历.docx",
     "项目/项目表达.md",
     "AI/AI.md",
     "设计模式/设计模式.md",
     "设计模式",
-    "Pasted image 20260706105031.png",
     "基础/JAVA基础.md",
-    "Pasted image 20260705112259.png",
-    "Pasted image 20260705111829.png",
-    "Pasted image 20260702100945.png",
-    "Pasted image 20260614150657.png",
-    "60678c30454422b4ac001aa37f0f8418.png",
     "Redis/Redis.md",
     "多线程/多线程.md",
     "Redis",
@@ -208,7 +209,6 @@
     "MQ/MQ.md",
     "框架/框架.md",
     "框架",
-    "MySQL/MySQL.md",
     "MQ",
     "语法/Markdown语法.md",
     "Spring",
