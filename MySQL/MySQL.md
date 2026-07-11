@@ -112,4 +112,4 @@ Redis 负责缓存 ES 返回的热点结果集（设置 5 分钟过期），避�
 
 
 
-![[Pasted image 20260711212035.png]]
+![[Pasted image 20260711212035.png]]![[Pasted image 20260711234058.png]]![[Pasted image 20260711234226.png]]

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MySQL/MySQL.md",
+                "file": "Redis/Redis.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MySQL"
+              "title": "Redis"
             }
           }
         ]
@@ -181,22 +181,23 @@
   },
   "active": "eebeb8c1211db6f9",
   "lastOpenFiles": [
-    "Pasted image 20260614150657.png",
-    "MySQL/MySQL.md",
-    "Pasted image 20260711212035.png",
-    "Pasted image 20260711210447.png",
     "JVM/JVM.md",
-    "Pasted image 20260711114918.png",
-    "429385d189bf7fd5d26f8b6a3d748cc5.png",
-    "Pasted image 20260711091321.png",
-    "Pasted image 20260613111318.png",
-    "Pasted image 20260711085221.png",
-    "Pasted image 20260710140855.png",
-    "Pasted image 20260710074115.png",
-    "Pasted image 20260710074327.png",
+    "AI/AI.md",
+    "附件/60678c30454422b4ac001aa37f0f8418.png",
+    "MySQL/MySQL.md",
+    "attachments/Pasted image 20260711234226.png",
+    "附件",
+    "MySQL/attachments/Pasted image 20260711234058.png",
+    "MySQL/attachments",
+    "附件/Pasted image 20260614150657.png",
+    "附件/Pasted image 20260711212035.png",
+    "附件/Pasted image 20260711210447.png",
+    "附件/Pasted image 20260711114918.png",
+    "附件/429385d189bf7fd5d26f8b6a3d748cc5.png",
+    "附件/Pasted image 20260711091321.png",
+    "附件/Pasted image 20260613111318.png",
     "简历.docx",
     "项目/项目表达.md",
-    "AI/AI.md",
     "设计模式/设计模式.md",
     "设计模式",
     "基础/JAVA基础.md",
@@ -211,8 +212,6 @@
     "框架",
     "MQ",
     "语法/Markdown语法.md",
-    "Spring",
-    "JVM",
     "Untitled.md",
     "Spring容器.md",
     "知识点/mysql.md",
