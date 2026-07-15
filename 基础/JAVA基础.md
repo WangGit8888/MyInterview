@@ -12,3 +12,7 @@
 ![[Pasted image 20260705112259.png]]
 
 ##### 如何排查死锁:           jstack -l 12345 | grep -A 20 "deadlock"
+
+#### ThreadLocal
+
+ThreadLocal 的 Entry 继承 WeakReference（弱引用），核心目的只有一个：防止key造成内存泄漏。value 的回则仍依赖于 ThreadLocalMap 的主动清理机制。

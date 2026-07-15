@@ -1,55 +1,4 @@
 
-###隐藏字段###
-
-对于系统列 `DB_TRX_ID`（事务ID）和 `DB_ROLL_PTR`（回滚指针），MySQL **没有提供任何SQL语句进行直接查询**。这些是 InnoDB 的内部实现细节，通常只有通过 `gdb` 调试或直接解析 `.ibd` 文件等高级手段才能接触到。
-
-###@Transactional事务传播级别###
-
-|                           |                                            |                                                             |                                  |
-| ------------------------- | ------------------------------------------ | ----------------------------------------------------------- | -------------------------------- |
-| **1. REQUIRED**  <br>（默认） | **如果当前有事务，就加入；如果没有，就新建一个。**                | **最常用**。方法 B 会融入方法 A 的事务中，两者作为一个整体提交或回滚。                    | 绝大多数增删改查业务，需要保证数据强一致性。           |
-| **2. REQUIRES_NEW**       | **无论当前有无事务，都新建一个事务。**  <br>如果当前有事务，则先将其挂起。 | 方法 B 的事务独立于方法 A。B 提交或回滚不会影响 A 的外部事务，反之亦然。                   | 需要记录操作日志、发送消息通知，这些操作不应因主业务失败而回滚。 |
-| **3. NESTED**             | **在当前事务中创建一个嵌套事务。**                        | 这是外层事务的子事务。嵌套事务可以独立提交/回滚，但它的最终提交要等外层事务提交。如果外层事务回滚，嵌套事务也会回滚。 | 批量操作中，希望某一条记录失败只回滚这一条，而不影响整个批处理。 |
-| **4. SUPPORTS**           | **如果当前有事务，就加入；如果没有，就以非事务方式执行。**            | 随大流。有事务就用，没事务就不用。                                           | 只读查询方法。如果有事务上下文，可以加入；没有，也能正常运行。  |
-| **5. NOT_SUPPORTED**      | **如果当前有事务，则挂起它，然后以非事务方式执行。**               | 强制不在事务中运行。执行完再恢复挂起的事务。                                      | 某些不重要的查询或操作，避免长时间占用数据库连接。        |
-| **6. MANDATORY**          | **必须运行在已有的事务中**。如果当前没有事务，则抛出异常。            | 强制要求调用方必须开启事务。                                              | 要求某个方法必须在父事务上下文中执行，不能单独调用。       |
-| **7. NEVER**              | **必须运行在非事务环境中**。如果当前有事务，则抛出异常。             | 与 MANDATORY 完全相反。                                           | 某些操作绝对不能和事务绑定，比如特定性能监控或锁操作。      |
-|                           |                                            |                                                             |                                  |
-###事务失效的几种情况###
-
-1、异常被 try-catch吃掉了
-2、方法不是public的
-3、自调用(同一个类的内部方法调用)
-4、传播行为
-	--Propagation.NOT_SUPPORTED 这个方法会挂起当前事务,以非事务方式执行
-	--Propagation.NEVER 如果当前有事务,会直接抛异常
-5、抛出的是非RuntimeException或非Error
-6、没有配置 rollbackFor且抛出了自定义的非运行时异常
-7、数据库不支持事务
-
-##java异常机制##
-Throwable (所有错误和异常的父类)
-│
-├── Error (严重系统错误，程序一般无法处理)
-│   ├── OutOfMemoryError  ← 会回滚 ✅
-│   ├── StackOverflowError ← 会回滚 ✅
-│   └── ...
-│
-└── Exception (程序可以处理的异常)
-    │
-    ├── RuntimeException (非受检异常 / 运行时异常)
-    │   ├── NullPointerException  ← 会回滚 ✅
-    │   ├── IllegalArgumentException ← 会回滚 ✅
-    │   ├── ClassCastException ← 会回滚 ✅
-    │   └── ...
-    │
-    └── 非 RuntimeException (受检异常 / Checked Exception)
-        ├── IOException  ← 不回滚 ❌
-        ├── SQLException  ← 不回滚 ❌
-        ├── FileNotFoundException ← 不回滚 ❌
-        └── 自定义业务异常(如果继承 Exception) ← 不回滚 ❌
-
-
 ## 如何优化慢查询,SQL调优
 
 ### 定位
@@ -112,4 +61,61 @@ Redis 负责缓存 ES 返回的热点结果集（设置 5 分钟过期），避�
 
 
 
-![[Pasted image 20260711212035.png]]![[Pasted image 20260711234058.png]]![[Pasted image 20260711234226.png]]
+![[Pasted image 20260711212035.png]]
+
+
+#### MSQL的四种隔离级别
+
+1. 读未提交(READ UNCOMMITTED)
+2. 读已提交(READ COMMITTED)
+3. 可重复度(REPEATABLE READ)-----默认
+4. 串行化(SERIALIZABLE)
+
+![[Pasted image 20260713213504.png]]
+#### msql在可重复读的条件下真的完完全全解决幻读了了么？
+
+1、快照读(普通SELECT)，MVCC完美解决
+2、当前读(SELECT···FOR UPDATE),仍有漏网之鱼
+
+1. **先快照读，再更新“看不见”的记录**：
+    
+    - 事务A先使用普通 `SELECT`（快照读），确认 `id=5` 的记录不存在。
+        
+    - 事务B插入 `id=5` 的记录并提交。
+        
+    - 此时，事务A执行 `UPDATE id=5 ...`（当前读）。这条新记录的 `trx_id` 会被改为事务A的ID，使得它在事务A自己的快照中变得“可见”[](https://raw.githubusercontent.com/xiaolincoder/CS-Base/e3c045ea9c4bdca191f48e6a22e3301ad231cbb3/mysql/transaction/phantom.md)[](https://bbs.huaweicloud.com/blogs/376104)。
+        
+    - 随后，事务A再次使用普通 `SELECT` 查询，就能看到这条之前“看不见”的记录，幻读发生[](https://raw.githubusercontent.com/xiaolincoder/CS-Base/e3c045ea9c4bdca191f48e6a22e3301ad231cbb3/mysql/transaction/phantom.md)[](https://bbs.huaweicloud.com/blogs/376104)。
+        
+2. **先快照读，再当前读**：
+    
+    - 事务A先执行普通 `SELECT`（快照读），得到一批数据。
+        
+    - 事务B插入一条符合条件的新记录并提交。
+        
+    - 事务A随后执行 `SELECT ... FOR UPDATE`（当前读），由于临键锁只对“当前读”生效，此时它会读到这条新插入的记录，导致两次查询结果集不一致，发生幻读[](https://raw.githubusercontent.com/xiaolincoder/CS-Base/e3c045ea9c4bdca191f48e6a22e3301ad231cbb3/mysql/transaction/phantom.md)[](https://bbs.huaweicloud.com/blogs/376104)[](https://developer.aliyun.com/article/1385066)。
+
+
+### MVCC
+
+其中mvcc的意思是多版本并发控制。指维护一个数据的多个版本，使得读写
+操作没有冲突，它的底层实现主要是分为了三个部分，第一个是隐藏字段，
+第二个是undo log日志，第三个是readView读视图。
+
+1.  隐藏字段是指：在mysql中给每个表都设置了隐藏字段，有一个是trx_id(事
+务id)，记录每一次操作的事务id，是自增的；另一个字段是roll_pointer(回
+滚指针)，指向上一个版本的事务版本记录地址。
+2. undo log主要的作用是记录回滚日志，存储老版本数据，在内部会形成一个
+版本链，在多个事务并行操作某一行记录，记录不同事务修改数据的版本，
+通过roll_pointer指针形成一个链表。
+3. readView解决的是一个事务查询选择版本的问题，在内部定义了一些匹配规
+则和当前的一些事务id判断该访问那个版本的数据，不同的隔离级别快照读
+是不一样的，最终的访问的结果不一样。如果是rc隔离级别，每一次执行快
+照读时生成ReadView，如果是rr隔离级别仅在事务中第一次执行快照读时生
+成ReadView，后续复用
+
+#### 索引覆盖(完全不回表)
+查询要的所有字段，都在某个索引树里能直接拿到，不需要回表（不需要查聚簇索引)
+
+#### 索引下推
+索引下推是 MySQL 5.6 引入的优化，核心是把联合索引中‘非前导列’的过滤条件下推到 InnoDB 存储引擎层执行。它减少了回表次数，降低了 Server 层和存储引擎层之间的数据传输量。它‘推’的对象是存储引擎。(减少回表)
