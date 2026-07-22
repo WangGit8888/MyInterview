@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Redis/Redis.md",
+                "file": "JVM/JVM.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Redis"
+              "title": "JVM"
             }
           }
         ]
@@ -181,17 +181,20 @@
   },
   "active": "eebeb8c1211db6f9",
   "lastOpenFiles": [
+    "附件/60678c30454422b4ac001aa37f0f8418.png",
+    "附件/Pasted image 20260720153153.png",
+    "JVM/JVM.md",
     "多线程/多线程.md",
+    "项目/项目表达.md",
+    "Redis/Redis.md",
     "框架/框架.md",
     "框架/框架.md",
     "MySQL/MySQL.md",
     "附件/Pasted image 20260720164513.png",
-    "Redis/Redis.md",
     "MQ/MQ.md",
     "语法/Markdown语法.md",
     "基础/JAVA基础.md",
     "设计模式/设计模式.md",
-    "附件/Pasted image 20260720153153.png",
     "附件/Pasted image 20260720151418.png",
     "附件/Pasted image 20260720151346.png",
     "附件/Pasted image 20260720143902.png",
@@ -199,14 +202,12 @@
     "排查类/排查类.md",
     "排查类",
     "附件/Pasted image 20260717142835.png",
-    "项目/项目表达.md",
     "附件/Pasted image 20260716201605.png",
     "AI/AI.md",
     "Mybatis/Mybatis.md",
     "附件/Pasted image 20260713213504.png",
     "Mybatis",
     "附件/Pasted image 20260713083213.png",
-    "JVM/JVM.md",
     "附件",
     "简历.docx",
     "设计模式",
