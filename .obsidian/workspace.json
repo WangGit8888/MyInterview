@@ -11,10 +11,21 @@
             "id": "905fb142821a6128",
             "type": "leaf",
             "state": {
+<<<<<<< HEAD
               "type": "empty",
               "state": {},
               "icon": "lucide-file",
               "title": "新标签页"
+=======
+              "type": "markdown",
+              "state": {
+                "file": "JVM/JVM.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "JVM"
+>>>>>>> origin/master
             }
           }
         ]
@@ -108,12 +119,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "MQ/MQ.md",
+                "file": "60678c30454422b4ac001aa37f0f8418.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "MQ 的出链列表"
+              "title": "60678c30454422b4ac001aa37f0f8418 的出链列表"
             }
           },
           {
@@ -124,7 +135,7 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true,
-                "showSearch": true,
+                "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
@@ -137,13 +148,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "MQ/MQ.md",
+                "file": "项目/项目表达.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "MQ 的大纲"
+              "title": "项目表达 的大纲"
             }
           },
           {
@@ -177,6 +188,7 @@
   },
   "active": "b177d41e7f9eda75",
   "lastOpenFiles": [
+<<<<<<< HEAD
     "附件/Pasted image 20260720220043.png",
     "JVM/JVM.md",
     "conflict-files-obsidian-git.md",
@@ -194,24 +206,47 @@
     "语法/Markdown语法.md",
     "基础/JAVA基础.md",
     "设计模式/设计模式.md",
+=======
+    "附件/Pasted image 20260721202652.png",
+    "附件/Pasted image 20260721202628.png",
+    "附件/Pasted image 20260721202531.png",
+    "附件/Pasted image 20260720220043.png",
+    "附件/Pasted image 20260720220001.png",
+    "框架/框架.md",
+    "基础/JAVA基础.md",
+    "附件/Pasted image 20260720153153.png",
+>>>>>>> origin/master
     "附件/Pasted image 20260720151418.png",
     "附件/Pasted image 20260720151346.png",
     "附件/Pasted image 20260720143902.png",
     "附件/Pasted image 20260720142631.png",
-    "排查类/排查类.md",
-    "排查类",
     "附件/Pasted image 20260717142835.png",
+<<<<<<< HEAD
     "AI/AI.md",
     "Mybatis/Mybatis.md",
     "Mybatis",
+=======
+    "Mybatis/Mybatis.md",
+    "Mybatis",
+    "多线程/多线程.md",
+    "AI/AI.md",
+    "Redis/Redis.md",
+    "JVM/JVM.md",
+    "MySQL/MySQL.md",
+>>>>>>> origin/master
     "附件",
+    "MySQL/attachments",
     "简历.docx",
+    "项目/项目表达.md",
+    "设计模式/设计模式.md",
     "设计模式",
     "Redis",
     "基础",
     "AI",
     "项目",
+    "MQ/MQ.md",
     "框架",
+    "语法/Markdown语法.md",
     "Untitled.md",
     "Spring容器.md",
     "知识点/mysql.md",
