@@ -69,14 +69,16 @@ Socket来判断是否就绪，提升了性能。
 
 #### 底层实现
 
-|类型|底层数据结构|关键点|
-|---|---|---|
-|**String**|**SDS**（Simple Dynamic String）|预分配空间、O(1) 获取长度、二进制安全|
-|**Hash**|元素少时用 **ziplist**（压缩列表），元素多时升级为 **hashtable**|ziplist 省内存，hashtable 支持快速查找|
-|**List**|**quicklist**（ziplist 组成的双向链表）|结合了 ziplist 省内存和链表快速插入的优点|
-|**Set**|元素全是整数用 **intset**，否则用 **hashtable**|intset 省内存，hashtable 支持 O(1) 查重|
-|**ZSet**|元素少时用 **ziplist**，元素多时用 **skiplist + hashtable**|**跳表**实现有序，**哈希表**实现 O(1) 查分数|
+| 类型         | 底层数据结构                                           | 关键点                             |
+| ---------- | ------------------------------------------------ | ------------------------------- |
+| **String** | **SDS**（Simple Dynamic String）                   | 预分配空间、O(1) 获取长度、二进制安全           |
+| **Hash**   | 元素少时用 **ziplist**（压缩列表），元素多时升级为 **hashtable**    | ziplist 省内存，hashtable 支持快速查找    |
+| **List**   | **quicklist**（ziplist 组成的双向链表）                   | 结合了 ziplist 省内存和链表快速插入的优点       |
+| **Set**    | 元素全是整数用 **intset**，否则用 **hashtable**             | intset 省内存，hashtable 支持 O(1) 查重 |
+| **ZSet**   | 元素少时用 **ziplist**，元素多时用 **skiplist + hashtable** | **跳表**实现有序，**哈希表**实现 O(1) 查分数   |
 
 ##### 为什么ZSet使用跳表而不是红黑树:
 
 ZSet 之所以用跳表不用红黑树，是因为跳表实现简单、支持范围查询（ZRANGE）效率高，而且并发场景下更容易维护。
+
+![[Pasted image 20260724134147.png]]

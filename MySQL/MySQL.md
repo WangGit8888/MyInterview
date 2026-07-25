@@ -5,7 +5,9 @@
 
 -- 开启慢查询日志：在 MySQL 配置中开启 slow_query_log，设置 long_query_time（例如设为 1 秒或 2 秒）
 
---  Mysql_Export + Prometheus + Grafana 实现慢查询监控
+--  Mysql_Export + Prometheus + Grafana 实现慢查询监控(pull模式)
+
+
 
 ### 分析
 
@@ -45,7 +47,7 @@ ALL	全表扫描	逐行扫描所有数据，性能最差	没有命中任何索�
 
 比如在之前的 ROI 项目中，底层是多层 BOM 聚合的大表，每秒有几千次多维度的组合查询。如果在 MySQL 里直接查，即使加了索引，CPU 也会飙到 80% 以上。
 
-我的方案是 ‘ES + Redis 两级缓存’：
+我的方案是 ES + Redis 两级缓存：
 
 ES 负责承接所有的复杂条件筛选和聚合计算（利用其分布式倒排索引能力）；
 
