@@ -85,9 +85,9 @@ Redis 负责缓存 ES 返回的热点结果集（设置 5 分钟过期），避�
         
     - 事务B插入 `id=5` 的记录并提交。
         
-    - 此时，事务A执行 `UPDATE id=5 ...`（当前读）。这条新记录的 `trx_id` 会被改为事务A的ID，使得它在事务A自己的快照中变得“可见”[](https://raw.githubusercontent.com/xiaolincoder/CS-Base/e3c045ea9c4bdca191f48e6a22e3301ad231cbb3/mysql/transaction/phantom.md)[](https://bbs.huaweicloud.com/blogs/376104)。
+    - 此时，事务A执行 `UPDATE id=5 ...`（当前读）。这条新记录的 `trx_id` 会被改为事务A的ID，使得它在事务A自己的快照中变得“可见”。
         
-    - 随后，事务A再次使用普通 `SELECT` 查询，就能看到这条之前“看不见”的记录，幻读发生[](https://raw.githubusercontent.com/xiaolincoder/CS-Base/e3c045ea9c4bdca191f48e6a22e3301ad231cbb3/mysql/transaction/phantom.md)[](https://bbs.huaweicloud.com/blogs/376104)。
+    - 随后，事务A再次使用普通 `SELECT` 查询，就能看到这条之前“看不见”的记录，幻读发生。
         
 2. **先快照读，再当前读**：
     
@@ -95,7 +95,7 @@ Redis 负责缓存 ES 返回的热点结果集（设置 5 分钟过期），避�
         
     - 事务B插入一条符合条件的新记录并提交。
         
-    - 事务A随后执行 `SELECT ... FOR UPDATE`（当前读），由于临键锁只对“当前读”生效，此时它会读到这条新插入的记录，导致两次查询结果集不一致，发生幻读[](https://raw.githubusercontent.com/xiaolincoder/CS-Base/e3c045ea9c4bdca191f48e6a22e3301ad231cbb3/mysql/transaction/phantom.md)[](https://bbs.huaweicloud.com/blogs/376104)[](https://developer.aliyun.com/article/1385066)。
+    - 事务A随后执行 `SELECT ... FOR UPDATE`（当前读），由于临键锁只对“当前读”生效，此时它会读到这条新插入的记录，导致两次查询结果集不一致，发生幻读。
 
 
 ### MVCC
@@ -129,3 +129,15 @@ Redis 负责缓存 ES 返回的热点结果集（设置 5 分钟过期），避�
 - **Undo Log（回滚日志）**：**逻辑日志**，记录的是“修改前的旧数据”。也属于 InnoDB，用于**事务回滚**和 **MVCC（多版本并发控制）**，实现读已提交、可重复读隔离级别。
     
 - **Binlog（归档日志）**：**逻辑日志**，记录的是 SQL 语句或行变更数据。属于 **MySQL Server 层**，与引擎无关，用于**主从复制**和**数据恢复**。它是**追加写**的，会生成新文件，不会覆盖。
+
+#### char和varchar的区别
+
+| 对比维度     | **CHAR**        | **VARCHAR**            |
+| -------- | --------------- | ---------------------- |
+| **存储长度** | 固定长度（0~255字符）   | 可变长度（0~65535字符）        |
+| **存储空间** | 分配固定空间，不足时用空格补全 | 按实际数据长度存储，额外加1~2字节记录长度 |
+| **尾部空格** | **会去除**检索时的尾部空格 | **会保留**尾部空格            |
+| **适用场景** | 长度固定或变化很小的数据    | 长度变化大、不确定的数据           |
+| **性能**   | 读取略快（偏移量固定）     | 写入和读取时需要额外处理长度，稍慢      |
+手机号、身份证->char
+用户昵称、文章标题->varchar
