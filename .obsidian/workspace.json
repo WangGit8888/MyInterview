@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JVM/JVM.md",
+                "file": "多线程/多线程.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "JVM"
+              "title": "多线程"
             }
           }
         ]
@@ -179,22 +179,23 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7653717594085ca1",
+  "active": "b7bc6b5e4a14829e",
   "lastOpenFiles": [
-    "AI/AI.md",
-    "多线程/多线程.md",
-    "MQ/MQ.md",
-    "JVM/JVM.md",
-    "项目/项目表达.md",
+    "附件/Pasted image 20260805115707.png",
     "框架/框架.md",
+    "基础/JAVA基础.md",
     "MySQL/MySQL.md",
+    "Mybatis/Mybatis.md",
+    "Redis/Redis.md",
+    "多线程/多线程.md",
+    "设计模式/设计模式.md",
+    "JVM/JVM.md",
+    "AI/AI.md",
+    "MQ/MQ.md",
+    "项目/项目表达.md",
     "AI/速凝剂检测标准.md",
     "语法/Markdown语法.md",
-    "Redis/Redis.md",
-    "基础/JAVA基础.md",
-    "设计模式/设计模式.md",
     "附件/Pasted image 20260724134147.png",
-    "Mybatis/Mybatis.md",
     "conflict-files-obsidian-git.md",
     "附件/Pasted image 20260720220043.png",
     "附件/Pasted image 20260721202652.png",
