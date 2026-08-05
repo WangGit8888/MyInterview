@@ -1,5 +1,10 @@
 ![[60678c30454422b4ac001aa37f0f8418.png]]
 
+### JVM由哪几部分组成
+1、ClassLoader（类加载器）
+2、Runtime Data Area（运行时数据区，内存分区）
+3、Execution Engine（执行引擎）
+4、Native Method Library（本地库接口）
 
 ![[429385d189bf7fd5d26f8b6a3d748cc5.png]]
 
@@ -114,11 +119,7 @@ Full GC:触发条件是老年代满
 5、执行`<init>`方法
 
 
-### JVM由哪几部分组成
-1、ClassLoader（类加载器）
-2、Runtime Data Area（运行时数据区，内存分区）
-3、Execution Engine（执行引擎）
-4、Native Method Library（本地库接口）
+
 ![[Pasted image 20260711085221.png]]
 #### 为什么CMS被废弃
 

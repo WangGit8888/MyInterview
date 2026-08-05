@@ -82,3 +82,14 @@ Socket来判断是否就绪，提升了性能。
 ZSet 之所以用跳表不用红黑树，是因为跳表实现简单、支持范围查询（ZRANGE）效率高，而且并发场景下更容易维护。
 
 ![[Pasted image 20260724134147.png]]
+#### 分布式锁原理,多节点下怎么处理
+1. 红锁
+   
+#### 拦截器/过滤器
+
+| 组件                    | 在哪个“层”起作用                 | **执行时机**                                             | 处理的对象                                         |
+| --------------------- | ------------------------- | ---------------------------------------------------- | --------------------------------------------- |
+| **过滤器 (Filter)**      | **Servlet 容器层** (如Tomcat) | 请求**进入**DispatcherServlet **之前** 和 响应**离开**容器 **之后** | 原始的`HttpServletRequest`/`HttpServletResponse` |
+| **拦截器 (Interceptor)** | **Spring MVC 层**          | DispatcherServlet 和 **Controller** 之间                | 经过包装的请求，可以访问Handler和Spring的上下文                |
+
+客户端请求 → **【过滤器 (Filter)】** → DispatcherServlet → **【拦截器 (Interceptor)】** → Controller
