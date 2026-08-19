@@ -1,3 +1,16 @@
+#### JDK8新特性
+
+1. Lambda 表达式
+2. Stream API
+3. 新的日期时间 API（java.time 包）
+
+   核心类：LocalDate（日期）、LocalTime（时间）、LocalDateTime（日期+时间）、ZonedDateTime（带时区）、Instant（时间戳
+4. 接口默认方法和静态方法
+5. Optional 类
+6. 方法引用（::）
+7. 新的 ConcurrentHashMap 改进
+	引入 **CAS + synchronized** 替代 JDK 7 的分段锁，锁粒度更细（Node级别），并发度更高
+8. 永久代移除
 
 #### JDK17新特性
 
@@ -105,6 +118,7 @@ Arthas
 Maven 有三套生命周期，最核心的是 Default Lifecycle，它的关键阶段是 `validate → compile → test → package → verify → install → deploy`，执行后面的阶段会自动执行前面的所有阶段。每个阶段本身不干活，真正干活的是绑定在上面的插件，比如 `compile` 阶段绑定了 `maven-compiler-plugin`。实际开发中最常用的命令是 `mvn clean package` 和 `mvn clean install`——`clean` 负责清理上一次构建的残留文件，确保构建干净；`install` 会把打好的包安装到本地仓库，供其他模块引用。`Generate Sources` 是 `validate` 和 `compile` 之间的一个阶段，用于在编译前生成额外的源代码，比如根据 `.proto` 文件生成 Java 类。
 
 #### 仲裁机制
+
 Maven 有两套依赖仲裁规则，按顺序优先级：
 1. **路径最短优先**：依赖树中路径最短的版本胜出。
 2. **声明顺序优先**：路径长度相同时，在 `pom.xml` 中先声明的优先。
