@@ -114,3 +114,34 @@ Maven 有两套依赖仲裁规则，按顺序优先级：
 2. 在 dependencyManagement 中统一管理版本（推荐）
 3. 直接在 `<dependencies>` 中显式声明
 4. 升级/降级依赖版本
+
+
+### 对象的创建过程
+
+1. Class Loading（类加载）
+
+2. Class Linking（链接）
+
+	Verification（验证）
+
+	Preparation（准备：静态变量赋默认值）
+
+	Resolution（解析）
+
+3. Class Initializing（初始化：静态变量赋初始值，执行 static {} 块）
+
+4. 申请对象内存（在堆里划出一块空间）
+
+5. 成员变量赋默认值（这是JVM自动做的，在内存清零时完成）
+
+6. 设置对象头（Mark Word + 类型指针）
+
+7. 调用构造方法 `<init>`（成员变量赋初始值，执行构造器里的代码）
+
+![[Pasted image 20260817165850.png]]
+
+##### 给对象的属性赋值的操作
+1. 属性的默认初始化
+2. 显示初始化
+3. 代码块中初始化
+4. 构造器中初始化
