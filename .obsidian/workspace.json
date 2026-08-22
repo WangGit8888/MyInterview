@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "多线程/多线程.md",
+                "file": "JVM/JVM.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "多线程"
+              "title": "JVM"
             }
           }
         ],
@@ -198,8 +198,12 @@
   },
   "active": "7653717594085ca1",
   "lastOpenFiles": [
-    "框架/框架.md",
+    "基础/JAVA基础.md",
     "谷粒商城/谷粒商城.md",
+    "MySQL/MySQL.md",
+    "设计模式/设计模式.md",
+    "多线程/多线程.md",
+    "框架/框架.md",
     "附件/Pasted image 20260820093245.png",
     "附件/Pasted image 20260820093226.png",
     "附件/Pasted image 20260820093158.png",
@@ -207,16 +211,12 @@
     "谷粒商城",
     "JVM/JVM.md",
     "Redis/Redis.md",
-    "基础/JAVA基础.md",
     "AI/AI.md",
-    "MySQL/MySQL.md",
     "MQ/MQ.md",
-    "多线程/多线程.md",
     "项目/RAG.md",
     "附件/Pasted image 20260817165850.png",
     "项目/钢筋标准.md",
     "附件/Pasted image 20260816140138.png",
-    "设计模式/设计模式.md",
     "AI/速凝剂检测标准.md",
     "Pasted image 20260721202652.png.md",
     "附件/Pasted image 20260805115707.png",
