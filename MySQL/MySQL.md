@@ -120,6 +120,8 @@ Redis 负责缓存 ES 返回的热点结果集（设置 5 分钟过期），避�
 照读时生成ReadView，如果是rr隔离级别仅在事务中第一次执行快照读时生
 成ReadView，后续复用
 
+MVCC 实现了 “普通 SELECT 读不加锁”，但写操作和特殊的 “当前读”（如 SELECT ... FOR UPDATE、SELECT ... LOCK IN SHARE MODE） 依然需要加锁
+
 ##### readView是什么
 
 ReadView 是 InnoDB 在执行 SELECT 时，于内存中临时生成的“可见性判断规则”，它通过记录当前系统的事务快照，决定此次查询能看到哪些已提交的数据版本。
@@ -153,6 +155,7 @@ ReadView 是 InnoDB 在执行 SELECT 时，于内存中临时生成的“可见�
 | **适用场景** | 事务回滚和恢复原数据，实现了事务中的原子性     | 崩溃恢复，实现了事务中的持久性           | 数据备份和主从复制                    |
 | **写入时机** | 事务提交之前，先记录更新前的数据到Undo Log | 更新内存记录时，会把修改记录到Redo Log   | 事务提交时在Server层写入Binlog        |
 | **存储位置** | 表空间中 ibdata 共享表数据文件       | ib_logfile0 和 ib_logfile1 | mysql-bin.000001 等Binlog日志文件 |
+|          | 之前                        | 之后                        | 之前和之后                        |
 
 - **Redo Log（重做日志）**：**物理日志**，记录的是“在某个数据页上做了什么修改”。属于 **InnoDB 引擎特有**，用于**崩溃恢复（Crash-safe）**。它采用**循环写**，空间固定。
     
