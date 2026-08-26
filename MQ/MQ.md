@@ -77,3 +77,8 @@ rabbitmq:
 #### RabbitMQ 延迟队列实现
 1.死信队列 + TTL。
 2.延迟消息插件。
+
+
+### RabbitMQ ACK底层机制
+
+在 RabbitMQ 里，ACK 是显式的，通过 AMQP 协议帧 basic.ack 通知 Broker 删除消息。Broker 内部通过维护每个 Channel 的未确认集合（Unconfirmed Set）来判断哪些消息需要重传，如果超时未收到 ACK 或心跳丢失，就会触发消息重新入队。
