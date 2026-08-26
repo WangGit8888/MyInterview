@@ -185,12 +185,10 @@ Full GC:触发条件是老年代满
 ![[Pasted image 20260710074327.png]]
 
 
-![[Pasted image 20260710140855.png]]![[Pasted image 20260711091321.png]]
+![[Pasted image 20260710140855.png]]
+### G1回收过程
 
-
-#### G1回收过程
-
-##### 年轻代GC
+##### 阶段一：年轻代GC
 1.第一阶段,扫描根。
 2.第二阶段,更新Rset
 3.第三阶段:处理RSet
@@ -209,7 +207,7 @@ CSet
 | **RSet**       | **Region级别**      | 每个Region拥有一个独立的RSet，记录“谁引用了本Region”。              |
 | **CSet**       | **Region级别**      | 是一个Region的集合（Set of Regions），由G1算法选出的待回收Region名单。 |
 
-##### 并发标记过程
+##### 阶段二：并发标记过程
 
 1. 初始标记（STW，很短）
 2. 并发标记（与应用线程一起跑）
@@ -218,6 +216,11 @@ CSet
 
 ![[Pasted image 20260711114918.png]]
 
+##### 阶段三：混合回收
+
+不单回收Old区，而是同时回收一部分Eden、Survivor和Old区的Region
+
+![[Pasted image 20260826092441.png]]
 
 **总结**：G1把堆拆成Region，通过并发标记统计每个Region的垃圾占比，然后在可预测的停顿时间内，优先回收垃圾最多的Region，并把存活对象拷贝到干净Region中，以此消除碎片并控制延迟。
 

@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Redis/Redis.md",
+                "file": "JVM/JVM.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Redis"
+              "title": "JVM"
             }
           }
         ],
@@ -198,12 +198,14 @@
   },
   "active": "3f8c5a6133d107b1",
   "lastOpenFiles": [
+    "附件/Pasted image 20260826092441.png",
+    "附件/Pasted image 20260826092404.png",
     "场景题/场景题.md",
+    "Redis/Redis.md",
     "附件/Pasted image 20260826083725.png",
     "附件/deepseek_mermaid_20260826_6b91c7.png",
     "设计模式/设计模式.md",
     "场景题",
-    "Redis/Redis.md",
     "MQ/MQ.md",
     "JVM/JVM.md",
     "MySQL/MySQL.md",
@@ -228,7 +230,6 @@
     "语法/Markdown语法.md",
     "附件/Pasted image 20260724134147.png",
     "conflict-files-obsidian-git.md",
-    "附件/Pasted image 20260720220043.png",
     "排查类/排查类.md",
     "排查类",
     "Mybatis",
