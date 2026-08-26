@@ -105,7 +105,11 @@ SHOW ENGINE INNODB STATUS
 
 ### 排查接口慢
 
-Arthas
+#### Arthas
+jad
+trace
+jad → mc → retransform
+
 
 #### Maven的生命周期
 
