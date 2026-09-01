@@ -188,9 +188,10 @@ Full GC:触发条件是老年代满
 ![[Pasted image 20260710140855.png]]
 ### G1回收过程
 
+目的:在延迟可控的情况下尽可能获得性能高的吞吐量
 ##### 阶段一：年轻代GC
 1.第一阶段,扫描根。
-2.第二阶段,更新Rset
+2.第二阶段,处理dirty card queue更新Rset
 3.第三阶段:处理RSet
 4.复制对象
 5.处理引用
@@ -206,7 +207,7 @@ CSet
 | **Card Table** | **Card级别**（512字节） | 全局的、细粒度的脏标记数组。                                    |
 | **RSet**       | **Region级别**      | 每个Region拥有一个独立的RSet，记录“谁引用了本Region”。              |
 | **CSet**       | **Region级别**      | 是一个Region的集合（Set of Regions），由G1算法选出的待回收Region名单。 |
-
+ 
 ##### 阶段二：并发标记过程
 
 1. 初始标记（STW，很短）
