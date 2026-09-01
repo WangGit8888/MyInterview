@@ -67,7 +67,7 @@ HashMap的数据结构：
 
 
 
-**扩容机制**:链表的长度大于8 **且** 数组长度大于64转换为红黑树
+**扩容机制**：链表的长度大于 8  **且** 数组长度大于 64 转换为红黑树
 
 
 #### ArrayList
@@ -106,10 +106,10 @@ SHOW ENGINE INNODB STATUS
 ### 排查接口慢
 
 #### Arthas
+
 jad
 trace
 jad → mc → retransform
-
 
 #### Maven的生命周期
 
@@ -124,10 +124,12 @@ Maven 有三套生命周期，最核心的是 Default Lifecycle，它的关键�
 #### 仲裁机制
 
 Maven 有两套依赖仲裁规则，按顺序优先级：
+
 1. **路径最短优先**：依赖树中路径最短的版本胜出。
 2. **声明顺序优先**：路径长度相同时，在 `pom.xml` 中先声明的优先。
 
 #### 项目中怎么解决依赖冲突的
+
 1. 使用 exclusions 排除（最常用）
 2. 在 dependencyManagement 中统一管理版本（推荐）
 3. 直接在 `<dependencies>` 中显式声明

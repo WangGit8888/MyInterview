@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "多线程/多线程.md",
+                "file": "MySQL/MySQL.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "多线程"
+              "title": "MySQL"
             }
           }
         ],
@@ -198,25 +198,25 @@
   },
   "active": "7653717594085ca1",
   "lastOpenFiles": [
+    "多线程/多线程.md",
+    "Redis/Redis.md",
+    "MySQL/MySQL.md",
+    "MQ/MQ.md",
+    "框架/框架.md",
     "基础/JAVA基础.md",
+    "JVM/JVM.md",
+    "额外/额外.md",
+    "场景题/场景题.md",
     "谷粒商城/谷粒商城.md",
     "语法/Markdown语法.md",
-    "框架/框架.md",
     "设计模式/设计模式.md",
-    "额外/额外.md",
-    "JVM/JVM.md",
     "附件/Pasted image 20260831100903.png",
     "项目/项目表达.md",
     "额外",
-    "MQ/MQ.md",
-    "MySQL/MySQL.md",
-    "多线程/多线程.md",
     "附件/Pasted image 20260826092700.png",
     "附件/Pasted image 20260826092633.png",
     "附件/Pasted image 20260826092441.png",
     "附件/Pasted image 20260826092404.png",
-    "场景题/场景题.md",
-    "Redis/Redis.md",
     "附件/Pasted image 20260826083725.png",
     "附件/deepseek_mermaid_20260826_6b91c7.png",
     "场景题",
